@@ -1,0 +1,148 @@
+---
+interface ProcessStep {
+  id: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  heading: string;
+  steps: ProcessStep[];
+  outro?: string;
+}
+
+const { heading, steps, outro } = Astro.props;
+---
+
+<section class="section process">
+  <div class="container">
+    <div class="process__header" data-reveal>
+      <span class="section-label">The Journey</span>
+      <h2 class="section-heading">{heading}</h2>
+    </div>
+
+    <div class="process__grid">
+      {steps.map((step, index) => (
+        <div 
+          class="process-step" 
+          data-reveal 
+          class={`delay-${(index + 1) * 150}`}
+        >
+          <div class="process-step__number" aria-hidden="true">
+            {step.id}
+          </div>
+          <h3 class="process-step__title">{step.title}</h3>
+          <p class="process-step__description">{step.description}</p>
+        </div>
+      ))}
+    </div>
+
+    {outro && (
+      <div class="process__outro" data-reveal>
+        <p>{outro}</p>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .process {
+    background-color: var(--color-bg);
+    position: relative;
+  }
+
+  .process__header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .process__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    position: relative;
+  }
+
+  @media (min-width: 900px) {
+    .process__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    /* Connecting lines for desktop */
+    .process__grid::before {
+      content: '';
+      position: absolute;
+      top: 3rem;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--color-border), transparent);
+      z-index: 0;
+    }
+  }
+
+  .process-step {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .process-step__number {
+    width: 6rem;
+    height: 6rem;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+  }
+
+  .process-step:hover .process-step__number {
+    border-color: var(--color-accent);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+  }
+
+  .process-step__title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-light);
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .process-step__description {
+    font-size: var(--text-base);
+    color: var(--color-muted);
+    line-height: var(--leading-relaxed);
+    max-width: 25rem;
+    margin-inline: auto;
+  }
+
+  .process__outro {
+    margin-top: 6rem;
+    text-align: center;
+    max-width: var(--max-width-prose);
+    margin-inline: auto;
+    padding: 2.5rem;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+  }
+
+  .process__outro p {
+    font-size: var(--text-lg);
+    color: var(--color-text);
+    font-style: italic;
+    font-weight: var(--font-weight-light);
+  }
+</style>

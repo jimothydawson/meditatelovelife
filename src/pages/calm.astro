@@ -1,0 +1,456 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import VedicMeditation from '../components/VedicMeditation.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Process from '../components/Process.astro';
+import Contact from '../components/Contact.astro';
+
+import calm from '../content/calm.json';
+import site from '../content/site.json';
+
+const pageTitle = `${calm.hero.heading} | ${site.name}`;
+---
+
+<BaseLayout title={pageTitle}>
+  <Nav />
+
+  <main>
+    <!-- Hero Section -->
+    <Hero 
+      hero={{
+        subheading: calm.hero.heading,
+        heading: "A simple, natural technique for professional mums.",
+        tagline: calm.hero.intro,
+        mandalaAlt: "Modern abstract mandala",
+        ctaPrimary: { text: calm.hero.cta, href: "#booking" },
+        ctaSecondary: { text: "Learn More", href: "#content" }
+      }}
+    />
+
+    <!-- Multi-paragraph Intro Section -->
+    <section id="content" class="section intro">
+      <div class="container intro__inner">
+        <div class="intro__content" data-reveal>
+          {calm.intro.paragraphs.map(para => (
+            <p class="intro__para">{para}</p>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Shifts Section -->
+    <section class="section shifts">
+      <div class="container">
+        <div class="shifts__header" data-reveal>
+          <h2 class="section-heading">{calm.shifts.heading}</h2>
+        </div>
+        <div class="shifts__grid">
+          {calm.shifts.items.map((item, index) => (
+            <div class="shift-item" data-reveal class={`delay-${(index % 4) * 100}`}>
+              <div class="shift-item__icon" aria-hidden="true">→</div>
+              <p class="shift-item__text">{item}</p>
+            </div>
+          ))}
+        </div>
+        <div class="shifts__outro" data-reveal>
+          <p>{calm.shifts.outro}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mid Quote & CTA -->
+    <section class="section section--accent mid-cta">
+      <div class="container container--narrow">
+        <div class="mid-cta__content" data-reveal>
+          <blockquote class="mid-cta__quote">
+            <p>{calm.quote.text}</p>
+          </blockquote>
+          <a href="#booking" class="btn btn--white">{calm.quote.cta}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section benefits">
+      <div class="container">
+        <div class="benefits__grid">
+          {calm.benefits.map((benefit, index) => (
+            <div class="benefit-card" data-reveal class={`delay-${(index % 3) * 100}`}>
+              <h3 class="benefit-card__title">{benefit.title},</h3>
+              <p class="benefit-card__result">{benefit.result}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <Testimonials 
+      heading={calm.testimonials.heading}
+      items={calm.testimonials.items}
+      cta={calm.testimonials.cta}
+    />
+
+    <!-- Course Details -->
+    <section class="section course">
+      <div class="container">
+        <div class="course__header" data-reveal>
+          <span class="section-label">Details</span>
+          <h2 class="section-heading">{calm.course.heading}</h2>
+          <p class="section-intro">{calm.course.subheading}</p>
+        </div>
+        <div class="course__grid">
+          {calm.course.details.map((detail, index) => (
+            <div class="course-detail" data-reveal class={`delay-${index * 100}`}>
+              <h3 class="course-detail__title">{detail.title}</h3>
+              <p class="course-detail__desc">{detail.description}</p>
+            </div>
+          ))}
+        </div>
+        <div class="course__footer" data-reveal>
+          <a href="#booking" class="btn btn--primary">{calm.course.cta}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <Process 
+      heading={calm.process.heading}
+      steps={calm.process.steps}
+      outro={calm.process.outro}
+    />
+
+    <!-- Meet Kari Section -->
+    <section class="section meet-kari">
+      <div class="container">
+        <div class="meet-kari__grid">
+          <div class="meet-kari__content" data-reveal>
+            <h2 class="section-heading">{calm.meetKari.heading}</h2>
+            <ul class="meet-kari__list">
+              {calm.meetKari.points.map(point => (
+                <li>{point}</li>
+              ))}
+            </ul>
+            <a href="#booking" class="btn btn--primary">{calm.meetKari.cta}</a>
+          </div>
+          <div class="meet-kari__imagery" data-reveal class="delay-200">
+             <div class="image-placeholder-modern">
+               <img src="/images/meditation-vibe.png" alt="Kari" />
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="section section--surface support">
+      <div class="container">
+        <div class="support__content" data-reveal>
+          <h2 class="section-heading">Ongoing Support</h2>
+          <p class="section-intro">{calm.support.heading}</p>
+          <div class="support__grid">
+            {calm.support.items.map(item => (
+              <div class="support-item">
+                <span class="support-item__check">✓</span>
+                <span class="support-item__text">{item}</span>
+              </div>
+            ))}
+          </div>
+          <p class="support__outro">{calm.support.outro}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="booking" class="section final-cta">
+      <div class="container container--narrow">
+        <div class="final-cta__content" data-reveal>
+          <h2 class="section-heading">{calm.finalCta.heading}</h2>
+          <p class="final-cta__text">{calm.finalCta.text}</p>
+          <div class="final-cta__actions">
+            <a href={`mailto:${site.email}`} class="btn btn--primary">{calm.finalCta.cta}</a>
+            <p class="final-cta__note">{calm.finalCta.note}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Contact />
+</BaseLayout>
+
+<style>
+  /* Intro Section */
+  .intro {
+    background-color: var(--color-bg);
+  }
+  .intro__inner {
+    max-width: var(--max-width-prose);
+    margin-inline: auto;
+  }
+  .intro__para {
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--color-muted);
+    margin-bottom: 2rem;
+  }
+
+  /* Shifts Section */
+  .shifts {
+    background-color: var(--color-surface);
+  }
+  .shifts__header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .shifts__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  .shift-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+  }
+  .shift-item__icon {
+    color: var(--color-accent);
+    font-weight: bold;
+    font-size: var(--text-xl);
+  }
+  .shift-item__text {
+    font-size: var(--text-base);
+    color: var(--color-text);
+  }
+  .shifts__outro {
+    max-width: var(--max-width-prose);
+    margin-inline: auto;
+    text-align: center;
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--color-muted);
+    font-style: italic;
+  }
+
+  /* Mid CTA */
+  .mid-cta {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    text-align: center;
+    padding-block: 6rem;
+  }
+  .mid-cta__quote {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 3rem;
+    line-height: var(--leading-tight);
+    font-weight: var(--font-weight-light);
+  }
+
+  /* Benefits */
+  .benefits {
+    background-color: var(--color-bg);
+  }
+  .benefits__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  @media (min-width: 768px) {
+    .benefits__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .benefits__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .benefit-card {
+    padding: 2.5rem;
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-base);
+  }
+  .benefit-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+  }
+  .benefit-card__title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    line-height: var(--leading-tight);
+  }
+  .benefit-card__result {
+    font-size: var(--text-base);
+    color: var(--color-muted);
+  }
+
+  /* Course */
+  .course {
+    background-color: var(--color-bg);
+  }
+  .course__header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  .course__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+  }
+  @media (min-width: 768px) {
+    .course__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .course-detail {
+    padding: 2rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .course-detail__title {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-normal);
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+  .course-detail__desc {
+    color: var(--color-muted);
+    line-height: var(--leading-relaxed);
+  }
+  .course__footer {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  /* Meet Kari */
+  .meet-kari {
+    background-color: var(--color-surface);
+  }
+  .meet-kari__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+  @media (min-width: 1024px) {
+    .meet-kari__grid {
+      flex-direction: row;
+      align-items: center;
+      gap: 10%;
+    }
+    .meet-kari__content {
+      flex: 1;
+    }
+    .meet-kari__imagery {
+      width: 40%;
+    }
+  }
+  .meet-kari__list {
+    list-style: none;
+    padding: 0;
+    margin-block: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .meet-kari__list li {
+    font-size: var(--text-base);
+    color: var(--color-muted);
+    line-height: var(--leading-relaxed);
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  .meet-kari__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+  }
+
+  .image-placeholder-modern {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    aspect-ratio: 4/5;
+  }
+  .image-placeholder-modern img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Support */
+  .support__content {
+    max-width: 50rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .support__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: left;
+    margin-block: 4rem;
+  }
+  @media (min-width: 640px) {
+    .support__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .support-item {
+    display: flex;
+    gap: 1rem;
+    font-size: var(--text-base);
+    color: var(--color-muted);
+  }
+  .support-item__check {
+    color: var(--color-sage);
+    font-weight: bold;
+  }
+  .support__outro {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-light);
+    color: var(--color-text);
+  }
+
+  /* Final CTA */
+  .final-cta {
+    background-color: var(--color-bg);
+    text-align: center;
+  }
+  .final-cta__text {
+    font-size: var(--text-lg);
+    color: var(--color-muted);
+    line-height: var(--leading-relaxed);
+    margin-bottom: 4rem;
+  }
+  .final-cta__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .final-cta__note {
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+</style>

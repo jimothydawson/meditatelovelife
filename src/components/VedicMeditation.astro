@@ -10,68 +10,88 @@ import vedic from '../content/vedic.json';
 <section id="vedic" class="section section--surface vedic">
   <div class="container vedic__inner">
 
-    <div class="vedic__header">
+    <div class="vedic__header" data-reveal>
       <span class="section-label">The practice</span>
       <h2 class="section-heading">
-        <!-- PLACEHOLDER: update heading in src/content/vedic.json → "heading" -->
         {vedic.heading}
       </h2>
       <p class="section-intro">
-        <!-- PLACEHOLDER: update intro in src/content/vedic.json → "intro" -->
         {vedic.intro}
       </p>
     </div>
 
-    <div class="vedic__body">
-      {vedic.paragraphs.map(para => (
-        <!-- PLACEHOLDER: update paragraphs in src/content/vedic.json → "paragraphs" array -->
-        <p>{para}</p>
-      ))}
-    </div>
+    <div class="vedic__grid">
+      <div class="vedic__body" data-reveal class="delay-100">
+        {vedic.paragraphs.map(para => (
+          <p>{para}</p>
+        ))}
+      </div>
 
-    <!-- Pull quote -->
-    <blockquote class="vedic__quote">
-      <!-- PLACEHOLDER: update pull quote in src/content/vedic.json → "pullQuote" -->
-      <p>{vedic.pullQuote}</p>
-    </blockquote>
+      <div class="vedic__aside" data-reveal class="delay-200">
+        <!-- Pull quote -->
+        <blockquote class="vedic__quote">
+          <p>{vedic.pullQuote}</p>
+        </blockquote>
 
-    <div class="vedic__cta-row">
-      <a href="#services" class="btn btn--outline">See Sessions</a>
-      <a href="#booking" class="btn btn--primary">Book Now</a>
+        <div class="vedic__cta-row">
+          <a href="#services" class="btn btn--outline">See Sessions</a>
+          <a href="#booking" class="btn btn--primary">Book Now</a>
+        </div>
+      </div>
     </div>
 
   </div>
 </section>
 
 <style>
+  .vedic {
+    background-color: var(--color-bg);
+  }
+
   .vedic__inner {
-    max-width: var(--max-width-prose);
-    margin-inline: auto;
+    max-width: var(--max-width);
   }
 
   .vedic__header {
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+
+  .vedic__header .section-intro {
+    margin-inline: auto;
+  }
+
+  .vedic__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
   }
 
   .vedic__body {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-    margin-bottom: 2.5rem;
-    color: var(--color-text);
+    gap: 1.5rem;
+    color: var(--color-muted);
   }
 
   .vedic__body p {
+    font-size: var(--text-base);
     line-height: var(--leading-relaxed);
   }
 
-  /* Pull quote */
+  /* Aside / Quote */
+  .vedic__aside {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
   .vedic__quote {
-    border-left: 3px solid var(--color-sage);
-    padding: 1.25rem 1.75rem;
-    margin-block: 2rem;
-    background-color: var(--color-sage-light);
-    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    border-left: 2px solid var(--color-sage);
+    padding: 2rem;
+    background-color: var(--color-surface);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    box-shadow: var(--shadow-md);
   }
 
   .vedic__quote p {
@@ -80,12 +100,34 @@ import vedic from '../content/vedic.json';
     color: var(--color-text);
     line-height: var(--leading-snug);
     max-width: none;
+    font-weight: var(--font-weight-light);
   }
 
   .vedic__cta-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.875rem;
-    margin-top: 2rem;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  /* Desktop layout */
+  @media (min-width: 1024px) {
+    .vedic__grid {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 10%;
+    }
+
+    .vedic__body {
+      flex: 1;
+      max-width: 45rem;
+    }
+
+    .vedic__aside {
+      width: 35%;
+      min-width: 20rem;
+      position: sticky;
+      top: 8rem;
+    }
   }
 </style>
