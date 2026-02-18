@@ -1,0 +1,91 @@
+---
+/**
+ * What is Vedic Meditation section
+ * Content source: src/content/vedic.json
+ * CMS fields: heading, intro, paragraphs (array), pullQuote
+ */
+import vedic from '../content/vedic.json';
+---
+
+<section id="vedic" class="section section--surface vedic">
+  <div class="container vedic__inner">
+
+    <div class="vedic__header">
+      <span class="section-label">The practice</span>
+      <h2 class="section-heading">
+        <!-- PLACEHOLDER: update heading in src/content/vedic.json → "heading" -->
+        {vedic.heading}
+      </h2>
+      <p class="section-intro">
+        <!-- PLACEHOLDER: update intro in src/content/vedic.json → "intro" -->
+        {vedic.intro}
+      </p>
+    </div>
+
+    <div class="vedic__body">
+      {vedic.paragraphs.map(para => (
+        <!-- PLACEHOLDER: update paragraphs in src/content/vedic.json → "paragraphs" array -->
+        <p>{para}</p>
+      ))}
+    </div>
+
+    <!-- Pull quote -->
+    <blockquote class="vedic__quote">
+      <!-- PLACEHOLDER: update pull quote in src/content/vedic.json → "pullQuote" -->
+      <p>{vedic.pullQuote}</p>
+    </blockquote>
+
+    <div class="vedic__cta-row">
+      <a href="#services" class="btn btn--outline">See Sessions</a>
+      <a href="#booking" class="btn btn--primary">Book Now</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .vedic__inner {
+    max-width: var(--max-width-prose);
+    margin-inline: auto;
+  }
+
+  .vedic__header {
+    margin-bottom: 2rem;
+  }
+
+  .vedic__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+    color: var(--color-text);
+  }
+
+  .vedic__body p {
+    line-height: var(--leading-relaxed);
+  }
+
+  /* Pull quote */
+  .vedic__quote {
+    border-left: 3px solid var(--color-sage);
+    padding: 1.25rem 1.75rem;
+    margin-block: 2rem;
+    background-color: var(--color-sage-light);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  .vedic__quote p {
+    font-size: var(--text-lg);
+    font-style: italic;
+    color: var(--color-text);
+    line-height: var(--leading-snug);
+    max-width: none;
+  }
+
+  .vedic__cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+    margin-top: 2rem;
+  }
+</style>

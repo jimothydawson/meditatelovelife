@@ -1,0 +1,37 @@
+---
+/**
+ * Meditate Love Life — home page
+ *
+ * Single-page site. All sections are composed here from their respective components.
+ * To edit text content, update the corresponding file in src/content/ — not this file.
+ *
+ * Content node map:
+ *   Site-wide       → src/content/site.json
+ *   Hero            → src/content/hero.json
+ *   About Kari      → src/content/about.json
+ *   Vedic Meditation → src/content/vedic.json
+ *   Sessions        → src/content/services.json
+ *   Booking         → src/content/booking.json
+ *   Contact/Footer  → src/content/contact.json + src/content/site.json
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import VedicMeditation from '../components/VedicMeditation.astro';
+import Services from '../components/Services.astro';
+import Booking from '../components/Booking.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<BaseLayout>
+  <Nav />
+  <main>
+    <Hero />
+    <About />
+    <VedicMeditation />
+    <Services />
+    <Booking />
+    <Contact />
+  </main>
+</BaseLayout>

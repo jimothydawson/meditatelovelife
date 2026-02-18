@@ -1,0 +1,161 @@
+---
+/**
+ * Hero section
+ * Content source: src/content/hero.json
+ * CMS fields: heading, subheading, tagline, ctaPrimary, ctaSecondary, mandalaAlt
+ */
+import hero from '../content/hero.json';
+---
+
+<section class="hero" aria-label="Hero">
+  <div class="container hero__inner">
+
+    <!-- Mandala centrepiece -->
+    <!-- PLACEHOLDER: replace /images/mandala.svg with client's final mandala artwork -->
+    <div class="hero__mandala" aria-hidden="true">
+      <img
+        src="/images/mandala.svg"
+        alt={hero.mandalaAlt}
+        class="hero__mandala-img"
+        width="420"
+        height="420"
+      />
+    </div>
+
+    <!-- Text -->
+    <div class="hero__text">
+      <p class="hero__eyebrow">
+        <!-- PLACEHOLDER: update subheading in src/content/hero.json → "subheading" -->
+        {hero.subheading}
+      </p>
+
+      <h1 class="hero__heading">
+        <!-- PLACEHOLDER: update main heading in src/content/hero.json → "heading" -->
+        {hero.heading}
+      </h1>
+
+      <p class="hero__tagline">
+        <!-- PLACEHOLDER: update tagline in src/content/hero.json → "tagline" -->
+        {hero.tagline}
+      </p>
+
+      <div class="hero__actions">
+        <a href={hero.ctaPrimary.href} class="btn btn--primary">
+          {hero.ctaPrimary.text}
+        </a>
+        <a href={hero.ctaSecondary.href} class="btn btn--outline">
+          {hero.ctaSecondary.text}
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding-top: 5rem; /* clear fixed nav */
+    padding-bottom: var(--space-section);
+    background-color: var(--color-bg);
+  }
+
+  .hero__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  /* Mandala */
+  .hero__mandala {
+    position: relative;
+    width: clamp(220px, 55vw, 380px);
+    flex-shrink: 0;
+  }
+
+  .hero__mandala::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--color-surface) 60%, transparent 100%);
+    z-index: 0;
+  }
+
+  .hero__mandala-img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    animation: mandala-breathe 8s ease-in-out infinite;
+  }
+
+  @keyframes mandala-breathe {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.92; }
+    50%       { transform: scale(1.035) rotate(1.5deg); opacity: 1; }
+  }
+
+  /* Text */
+  .hero__eyebrow {
+    font-size: var(--text-sm);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-sage);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 0.75rem;
+    max-width: none;
+  }
+
+  .hero__heading {
+    font-size: clamp(2.25rem, 7vw, 3.75rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    line-height: var(--leading-tight);
+  }
+
+  .hero__tagline {
+    font-size: clamp(var(--text-lg), 2.5vw, var(--text-xl));
+    color: var(--color-muted);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--leading-snug);
+    margin-bottom: 2rem;
+    max-width: none;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+    justify-content: center;
+  }
+
+  /* Desktop: side by side */
+  @media (min-width: 900px) {
+    .hero__inner {
+      flex-direction: row;
+      justify-content: center;
+      gap: clamp(3rem, 6vw, 6rem);
+      text-align: left;
+    }
+
+    .hero__mandala {
+      order: 2;
+      width: clamp(280px, 38vw, 420px);
+    }
+
+    .hero__text {
+      order: 1;
+      max-width: 32rem;
+    }
+
+    .hero__actions {
+      justify-content: flex-start;
+    }
+  }
+</style>

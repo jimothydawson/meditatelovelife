@@ -1,0 +1,124 @@
+---
+/**
+ * Booking section
+ * Content source: src/content/booking.json
+ * CMS fields: heading, intro, embedType, embedCode, fallbackCta, fallbackEmail, fallbackEmailLabel
+ *
+ * How this works:
+ *   - While embedType contains "PLACEHOLDER", the section renders the email fallback.
+ *   - Once embedType is set to 'square', 'acuity', or 'calendly', a developer
+ *     adds the embed code and this section becomes the booking widget.
+ *   - The CMS can update the text fields (heading, intro, fallbackCta) directly.
+ */
+import booking from '../content/booking.json';
+
+// Show fallback contact prompt until an embed type is properly set
+const hasEmbed = !booking.embedType.startsWith('PLACEHOLDER');
+---
+
+<section id="booking" class="section section--sage booking">
+  <div class="container booking__inner">
+
+    <div class="booking__header">
+      <span class="section-label">Ready to begin</span>
+      <h2 class="section-heading">
+        <!-- PLACEHOLDER: update heading in src/content/booking.json → "heading" -->
+        {booking.heading}
+      </h2>
+      <p class="section-intro">
+        <!-- PLACEHOLDER: update intro in src/content/booking.json → "intro" -->
+        {booking.intro}
+      </p>
+    </div>
+
+    {hasEmbed ? (
+      <!-- Booking embed — populated once booking system is chosen -->
+      <!-- PLACEHOLDER: developer inserts embed widget here. Update embedType and embedCode in booking.json. -->
+      <div class="booking__embed" set:html={booking.embedCode} />
+    ) : (
+      <!-- Fallback: direct email prompt shown while booking system is TBD -->
+      <div class="booking__fallback">
+        <p class="booking__fallback-text">
+          <!-- PLACEHOLDER: update fallbackCta in src/content/booking.json → "fallbackCta" -->
+          {booking.fallbackCta}
+        </p>
+        <a
+          href={`mailto:${booking.fallbackEmail}`}
+          class="booking__email-link"
+          aria-label={`Email Kari at ${booking.fallbackEmailLabel}`}
+        >
+          <!-- PLACEHOLDER: update fallbackEmail in src/content/booking.json → "fallbackEmail" -->
+          {booking.fallbackEmailLabel}
+        </a>
+        <p class="booking__embed-note">
+          <!-- Note for developer/CMS user about next steps -->
+          Online booking is coming soon. In the meantime, reach out directly and Kari will get back to you promptly.
+        </p>
+      </div>
+    )}
+
+  </div>
+</section>
+
+<style>
+  .booking__inner {
+    max-width: 52rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .booking__header {
+    margin-bottom: 2.5rem;
+  }
+
+  .booking__header .section-intro {
+    margin-inline: auto;
+  }
+
+  /* Embed container */
+  .booking__embed {
+    width: 100%;
+    min-height: 400px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  /* Fallback email prompt */
+  .booking__fallback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 3rem 2rem;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .booking__fallback-text {
+    font-size: var(--text-lg);
+    color: var(--color-muted);
+    max-width: none;
+  }
+
+  .booking__email-link {
+    font-size: clamp(var(--text-xl), 3vw, var(--text-2xl));
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    word-break: break-all;
+  }
+
+  .booking__email-link:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .booking__embed-note {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    font-style: italic;
+    max-width: 28rem;
+    margin-top: 0.5rem;
+  }
+</style>

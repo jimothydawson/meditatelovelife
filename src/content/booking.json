@@ -1,0 +1,9 @@
+{
+  "heading": "Book a Session",
+  "intro": "PLACEHOLDER — Add a warm, low-pressure invitation to book. Reassure people that reaching out is easy and that Kari will respond personally.",
+  "embedType": "PLACEHOLDER — Update this to 'square', 'acuity', or 'calendly' once a booking system has been chosen. Leave as placeholder to show the fallback contact prompt.",
+  "embedCode": "PLACEHOLDER — Paste the full booking widget embed code here when ready. The embedType field above controls whether this is shown.",
+  "fallbackCta": "To book a session or ask a question, reach out directly:",
+  "fallbackEmail": "kari@meditatelovelife.com",
+  "fallbackEmailLabel": "kari@meditatelovelife.com"
+}

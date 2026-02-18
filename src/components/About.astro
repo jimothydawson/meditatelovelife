@@ -1,0 +1,149 @@
+---
+/**
+ * About Kari section
+ * Content source: src/content/about.json
+ * CMS fields: heading, paragraphs (array), imageSrc, imageAlt
+ */
+import about from '../content/about.json';
+---
+
+<section id="about" class="section about">
+  <div class="container about__inner">
+
+    <!-- Portrait -->
+    <div class="about__portrait">
+      <!-- PLACEHOLDER: replace imageSrc in src/content/about.json with Kari's real photo.
+           Replace imageAlt with a meaningful description of the image. -->
+      <div class="about__portrait-frame">
+        <img
+          src={about.imageSrc}
+          alt={about.imageAlt}
+          class="about__img"
+          width="480"
+          height="560"
+          loading="lazy"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <!-- Shown if placeholder image is missing -->
+        <div class="about__img-placeholder" aria-hidden="true">
+          <span>Photo of Kari coming soon</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text -->
+    <div class="about__text">
+      <span class="section-label">Your teacher</span>
+      <h2 class="section-heading">
+        <!-- PLACEHOLDER: update heading in src/content/about.json → "heading" -->
+        {about.heading}
+      </h2>
+
+      <div class="about__body">
+        {about.paragraphs.map(para => (
+          <!-- PLACEHOLDER: update each paragraph in src/content/about.json → "paragraphs" array -->
+          <p>{para}</p>
+        ))}
+      </div>
+
+      <a href="#booking" class="btn btn--outline about__cta">
+        Book a Session
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .about__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+
+  /* Portrait */
+  .about__portrait {
+    width: 100%;
+    max-width: 22rem;
+    margin-inline: auto;
+    flex-shrink: 0;
+  }
+
+  .about__portrait-frame {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 6 / 7;
+    background-color: var(--color-surface);
+  }
+
+  .about__portrait-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+    box-shadow: inset 0 0 0 1px var(--color-border);
+    pointer-events: none;
+  }
+
+  .about__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .about__img-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    text-align: center;
+    background-color: var(--color-surface);
+  }
+
+  /* Text */
+  .about__text {
+    max-width: 38rem;
+  }
+
+  .about__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+  }
+
+  .about__body p {
+    line-height: var(--leading-relaxed);
+  }
+
+  .about__cta {
+    margin-top: 0.5rem;
+  }
+
+  /* Desktop: side by side */
+  @media (min-width: 900px) {
+    .about__inner {
+      flex-direction: row;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: center;
+    }
+
+    .about__portrait {
+      margin-inline: 0;
+      max-width: 28rem;
+      width: 42%;
+    }
+
+    .about__text {
+      flex: 1;
+    }
+  }
+</style>

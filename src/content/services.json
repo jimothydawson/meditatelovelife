@@ -1,0 +1,31 @@
+{
+  "heading": "Sessions & Courses",
+  "intro": "PLACEHOLDER — Add a warm, welcoming sentence inviting people to explore Kari's offerings. Keep it grounded and unhurried.",
+  "services": [
+    {
+      "id": "intro-session",
+      "name": "Introductory Session",
+      "description": "PLACEHOLDER — Describe what happens in a first meeting with Kari. What does she cover? How long does it go? What will someone leave knowing or feeling?",
+      "price": "PLACEHOLDER — e.g. $150",
+      "duration": "PLACEHOLDER — e.g. 90 minutes",
+      "format": "In person or online"
+    },
+    {
+      "id": "learn-to-meditate",
+      "name": "Learn to Meditate Course",
+      "description": "PLACEHOLDER — Describe the full learn-to-meditate course. In Vedic tradition this is typically four sessions over four consecutive days. Explain what each session involves and what students walk away with.",
+      "price": "PLACEHOLDER — e.g. $750",
+      "duration": "PLACEHOLDER — e.g. Four sessions over four days",
+      "format": "In person, Killarney Heights"
+    },
+    {
+      "id": "follow-up-checking",
+      "name": "Follow-up & Checking",
+      "description": "PLACEHOLDER — Describe ongoing support for those who have already learned. What does a checking session involve? How often would someone come back?",
+      "price": "PLACEHOLDER — e.g. $80",
+      "duration": "PLACEHOLDER — e.g. 45 minutes",
+      "format": "In person or online"
+    }
+  ],
+  "note": "PLACEHOLDER — Optional note below the services, e.g. concession pricing, gift vouchers, or corporate group sessions available on request."
+}
