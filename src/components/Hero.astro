@@ -11,35 +11,32 @@ import hero from '../content/hero.json';
   <div class="container hero__inner">
 
     <!-- Mandala centrepiece -->
-    <!-- PLACEHOLDER: replace /images/mandala.svg with client's final mandala artwork -->
-    <div class="hero__mandala" aria-hidden="true">
+    <div class="hero__mandala" data-reveal>
       <img
-        src="/images/mandala.svg"
+        src="/images/hero-mandala.png"
         alt={hero.mandalaAlt}
         class="hero__mandala-img"
-        width="420"
-        height="420"
+        width="800"
+        height="800"
       />
+      <div class="hero__mandala-glow"></div>
     </div>
 
     <!-- Text -->
     <div class="hero__text">
-      <p class="hero__eyebrow">
-        <!-- PLACEHOLDER: update subheading in src/content/hero.json → "subheading" -->
+      <p class="hero__eyebrow" data-reveal>
         {hero.subheading}
       </p>
 
-      <h1 class="hero__heading">
-        <!-- PLACEHOLDER: update main heading in src/content/hero.json → "heading" -->
+      <h1 class="hero__heading" data-reveal class="delay-100">
         {hero.heading}
       </h1>
 
-      <p class="hero__tagline">
-        <!-- PLACEHOLDER: update tagline in src/content/hero.json → "tagline" -->
+      <p class="hero__tagline" data-reveal class="delay-200">
         {hero.tagline}
       </p>
 
-      <div class="hero__actions">
+      <div class="hero__actions" data-reveal class="delay-300">
         <a href={hero.ctaPrimary.href} class="btn btn--primary">
           {hero.ctaPrimary.text}
         </a>
@@ -54,104 +51,127 @@ import hero from '../content/hero.json';
 
 <style>
   .hero {
-    min-height: 100svh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 5rem; /* clear fixed nav */
-    padding-bottom: var(--space-section);
+    padding-top: 6rem;
+    padding-bottom: 4rem;
     background-color: var(--color-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(124, 154, 130, 0.05) 0%, transparent 70%);
+    z-index: 0;
   }
 
   .hero__inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 4rem;
     text-align: center;
+    position: relative;
+    z-index: 1;
   }
 
   /* Mandala */
   .hero__mandala {
     position: relative;
-    width: clamp(220px, 55vw, 380px);
+    width: clamp(280px, 70vw, 480px);
     flex-shrink: 0;
-  }
-
-  .hero__mandala::before {
-    content: '';
-    position: absolute;
-    inset: -12%;
-    border-radius: 50%;
-    background: radial-gradient(circle, var(--color-surface) 60%, transparent 100%);
-    z-index: 0;
   }
 
   .hero__mandala-img {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
     height: auto;
-    animation: mandala-breathe 8s ease-in-out infinite;
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.05));
+    animation: mandala-float 12s ease-in-out infinite;
   }
 
-  @keyframes mandala-breathe {
-    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.92; }
-    50%       { transform: scale(1.035) rotate(1.5deg); opacity: 1; }
+  .hero__mandala-glow {
+    position: absolute;
+    inset: 10%;
+    background: var(--color-accent);
+    filter: blur(80px);
+    opacity: 0.1;
+    z-index: 1;
+    border-radius: 50%;
+  }
+
+  @keyframes mandala-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%       { transform: translateY(-15px) rotate(2deg); }
   }
 
   /* Text */
   .hero__eyebrow {
-    font-size: var(--text-sm);
-    letter-spacing: 0.12em;
+    font-size: var(--text-xs);
+    letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--color-sage);
     font-weight: var(--font-weight-semibold);
-    margin-bottom: 0.75rem;
-    max-width: none;
+    margin-bottom: 1.5rem;
   }
 
   .hero__heading {
-    font-size: clamp(2.25rem, 7vw, 3.75rem);
-    font-weight: 300;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: var(--font-weight-light);
+    letter-spacing: -0.03em;
     color: var(--color-text);
-    margin-bottom: 1rem;
-    line-height: var(--leading-tight);
+    margin-bottom: 2rem;
+    line-height: 1;
   }
 
   .hero__tagline {
     font-size: clamp(var(--text-lg), 2.5vw, var(--text-xl));
     color: var(--color-muted);
-    font-weight: var(--font-weight-normal);
-    line-height: var(--leading-snug);
-    margin-bottom: 2rem;
-    max-width: none;
+    font-weight: var(--font-weight-light);
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    max-width: 32rem;
+    margin-inline: auto;
   }
 
   .hero__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.875rem;
+    gap: 1.25rem;
     justify-content: center;
   }
 
   /* Desktop: side by side */
-  @media (min-width: 900px) {
+  @media (min-width: 1024px) {
     .hero__inner {
       flex-direction: row;
-      justify-content: center;
-      gap: clamp(3rem, 6vw, 6rem);
+      justify-content: space-between;
       text-align: left;
+      gap: 5%;
     }
 
     .hero__mandala {
       order: 2;
-      width: clamp(280px, 38vw, 420px);
+      width: 45%;
+      max-width: 600px;
     }
 
     .hero__text {
       order: 1;
-      max-width: 32rem;
+      max-width: 45rem;
+      flex: 1;
+    }
+
+    .hero__tagline {
+      margin-inline: 0;
     }
 
     .hero__actions {

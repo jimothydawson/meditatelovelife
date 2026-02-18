@@ -35,18 +35,39 @@ const canonicalUrl = new URL(Astro.url.pathname, site.url);
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(ogImage, site.url)} />
 
-    <!-- Favicon — PLACEHOLDER: replace /images/favicon.svg with real brand mark -->
-    <link rel="icon" type="image/svg+xml" href="/images/mandala.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Nunito Sans via Google Fonts — lightweight, load only weights used -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600&display=swap"
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap"
     />
   </head>
   <body>
     <slot />
+
+    <script>
+      // Scroll-reveal Intersection Observer
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, observerOptions);
+
+      // Initialize reveals
+      document.querySelectorAll('[data-reveal]').forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
   </body>
 </html>

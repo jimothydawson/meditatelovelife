@@ -9,60 +9,80 @@
    Design tokens — CMS-safe to edit these values
    ------------------------------------------------------------ */
 :root {
-  /* Colour palette — earthy, muted, warm */
-  --color-bg:        #FAF8F4;   /* warm cream background */
-  --color-surface:   #F0EBE3;   /* slightly deeper surface for cards/sections */
-  --color-border:    #DDD5CA;   /* soft warm border */
-  --color-text:      #3D3530;   /* warm dark brown — primary text */
-  --color-muted:     #8B7B72;   /* secondary/caption text */
-  --color-accent:    #8B6E5A;   /* terracotta — links, headings, highlights */
-  --color-accent-hover: #6E5344; /* darker terracotta on hover */
-  --color-sage:      #6B8F71;   /* sage green — secondary accent */
-  --color-sage-light: #EEF3EE;  /* pale sage — subtle backgrounds */
-  --color-white:     #FFFFFF;
+  /* Colour palette — premium, ethereal, earthy */
+  --color-bg: #FDFCFB;
+  /* cleaner, brighter warm cream */
+  --color-surface: #F9F6F1;
+  /* soft surface */
+  --color-border: #EAE4DB;
+  /* more subtle border */
+  --color-text: #2D2622;
+  /* deeper, more contrast dark brown */
+  --color-muted: #7A6C63;
+  /* balanced secondary text */
+  --color-accent: #9D7A64;
+  /* refined terracotta */
+  --color-accent-hover: #7E6150;
+  --color-sage: #7C9A82;
+  /* refined sage */
+  --color-sage-light: #F4F7F4;
+  /* airy pale sage */
+  --color-gold: #C5A059;
+  /* premium touch */
+  --color-white: #FFFFFF;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(253, 252, 251, 0.75);
+  --glass-border: rgba(234, 228, 219, 0.4);
+  --glass-blur: 12px;
 
   /* Typography */
-  --font-sans:       'Nunito Sans', system-ui, -apple-system, sans-serif;
-  --font-serif:      Georgia, 'Times New Roman', serif;
+  --font-sans: 'Nunito Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Georgia', serif;
 
-  --text-xs:    0.75rem;
-  --text-sm:    0.875rem;
-  --text-base:  1rem;
-  --text-lg:    1.125rem;
-  --text-xl:    1.25rem;
-  --text-2xl:   1.5rem;
-  --text-3xl:   1.875rem;
-  --text-4xl:   2.25rem;
-  --text-5xl:   3rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+  --text-5xl: 4rem;
 
-  --leading-tight:  1.2;
-  --leading-snug:   1.35;
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
   --leading-normal: 1.6;
-  --leading-relaxed: 1.75;
+  --leading-relaxed: 1.8;
 
-  --font-weight-normal: 300;
-  --font-weight-medium: 400;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
   --font-weight-semibold: 600;
 
   /* Spacing */
-  --space-section: clamp(4rem, 10vw, 8rem);
-  --space-lg:      2.5rem;
-  --space-md:      1.5rem;
-  --space-sm:      1rem;
-  --space-xs:      0.5rem;
+  --space-section: clamp(5rem, 12vw, 10rem);
+  --space-lg: 3rem;
+  --space-md: 2rem;
+  --space-sm: 1.25rem;
+  --space-xs: 0.75rem;
 
   /* Layout */
-  --max-width:       68rem;
-  --max-width-prose: 42rem;
+  --max-width: 80rem;
+  /* widened for full-width sections */
+  --max-width-prose: 45rem;
 
   /* Border radius */
-  --radius-sm:   4px;
-  --radius-md:   8px;
-  --radius-lg:   16px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
   --radius-full: 9999px;
 
-  /* Transitions */
-  --transition-base: 200ms ease;
+  /* Transitions & Shadows */
+  --transition-base: 350ms cubic-bezier(0.23, 1, 0.32, 1);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 8px 30px rgba(45, 38, 34, 0.05);
+  --shadow-lg: 0 12px 50px rgba(45, 38, 34, 0.1);
 }
 
 /* ------------------------------------------------------------
@@ -113,17 +133,35 @@ a:hover {
 /* ------------------------------------------------------------
    Typography
    ------------------------------------------------------------ */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-sans);
   font-weight: var(--font-weight-semibold);
   line-height: var(--leading-tight);
   color: var(--color-text);
 }
 
-h1 { font-size: clamp(var(--text-3xl), 6vw, var(--text-5xl)); letter-spacing: -0.02em; }
-h2 { font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl)); letter-spacing: -0.015em; }
-h3 { font-size: clamp(var(--text-xl), 3vw, var(--text-2xl)); }
-h4 { font-size: var(--text-lg); }
+h1 {
+  font-size: clamp(var(--text-3xl), 6vw, var(--text-5xl));
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-size: clamp(var(--text-xl), 3vw, var(--text-2xl));
+}
+
+h4 {
+  font-size: var(--text-lg);
+}
 
 p {
   line-height: var(--leading-relaxed);
@@ -137,11 +175,17 @@ p {
   width: 100%;
   max-width: var(--max-width);
   margin-inline: auto;
-  padding-inline: clamp(1.25rem, 5vw, 3rem);
+  padding-inline: clamp(1.5rem, 6vw, 4rem);
 }
 
 .section {
   padding-block: var(--space-section);
+  position: relative;
+  overflow: hidden;
+}
+
+.section--full {
+  padding-inline: 0;
 }
 
 .section--surface {
@@ -152,6 +196,14 @@ p {
   background-color: var(--color-sage-light);
 }
 
+/* Glassmorphism utility */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
 /* ------------------------------------------------------------
    Buttons
    ------------------------------------------------------------ */
@@ -159,32 +211,32 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.75rem;
+  gap: 0.75rem;
+  padding: 1rem 2.25rem;
   border-radius: var(--radius-full);
   font-family: var(--font-sans);
   font-size: var(--text-sm);
   font-weight: var(--font-weight-semibold);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  border: 2px solid transparent;
-  transition: background-color var(--transition-base),
-              color var(--transition-base),
-              border-color var(--transition-base);
+  border: 1.5px solid transparent;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
 }
 
 .btn--primary {
   background-color: var(--color-accent);
   color: var(--color-white);
-  border-color: var(--color-accent);
+  box-shadow: 0 4px 15px rgba(157, 122, 100, 0.2);
 }
 
 .btn--primary:hover {
   background-color: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
-  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(157, 122, 100, 0.3);
 }
 
 .btn--outline {
@@ -196,6 +248,8 @@ p {
 .btn--outline:hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
+  background-color: rgba(157, 122, 100, 0.03);
+  transform: translateY(-2px);
 }
 
 /* ------------------------------------------------------------
@@ -205,14 +259,17 @@ p {
   display: block;
   font-size: var(--text-xs);
   font-weight: var(--font-weight-semibold);
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-sage);
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+  opacity: 0.8;
 }
 
 .section-heading {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: var(--font-weight-light);
+  line-height: var(--leading-tight);
 }
 
 .section-intro {
@@ -224,16 +281,44 @@ p {
 }
 
 /* ------------------------------------------------------------
+   Reveal Animations
+   ------------------------------------------------------------ */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1),
+    opacity 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 {
+  transition-delay: 100ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}
+
+/* ------------------------------------------------------------
    Divider
    ------------------------------------------------------------ */
 .divider {
   border: none;
   border-top: 1px solid var(--color-border);
   margin-block: var(--space-lg);
+  opacity: 0.5;
 }
 
 /* ------------------------------------------------------------
-   Visually hidden (accessibility)
+   Visually hidden
    ------------------------------------------------------------ */
 .sr-only {
   position: absolute;
@@ -252,6 +337,6 @@ p {
    ------------------------------------------------------------ */
 :focus-visible {
   outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
+  outline-offset: 4px;
   border-radius: var(--radius-sm);
 }

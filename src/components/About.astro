@@ -10,140 +10,128 @@ import about from '../content/about.json';
 <section id="about" class="section about">
   <div class="container about__inner">
 
-    <!-- Portrait -->
-    <div class="about__portrait">
-      <!-- PLACEHOLDER: replace imageSrc in src/content/about.json with Kari's real photo.
-           Replace imageAlt with a meaningful description of the image. -->
-      <div class="about__portrait-frame">
+    <!-- Imagery -->
+    <div class="about__imagery" data-reveal>
+      <div class="about__img-wrapper">
         <img
-          src={about.imageSrc}
-          alt={about.imageAlt}
+          src="/images/meditation-vibe.png"
+          alt="Abstract meditation atmosphere"
           class="about__img"
-          width="480"
-          height="560"
+          width="800"
+          height="1000"
           loading="lazy"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
         />
-        <!-- Shown if placeholder image is missing -->
-        <div class="about__img-placeholder" aria-hidden="true">
-          <span>Photo of Kari coming soon</span>
-        </div>
+        <div class="about__img-overlay"></div>
       </div>
     </div>
 
     <!-- Text -->
     <div class="about__text">
-      <span class="section-label">Your teacher</span>
-      <h2 class="section-heading">
-        <!-- PLACEHOLDER: update heading in src/content/about.json → "heading" -->
+      <span class="section-label" data-reveal>Your teacher</span>
+      <h2 class="section-heading" data-reveal class="delay-100">
         {about.heading}
       </h2>
 
-      <div class="about__body">
+      <div class="about__body" data-reveal class="delay-200">
         {about.paragraphs.map(para => (
-          <!-- PLACEHOLDER: update each paragraph in src/content/about.json → "paragraphs" array -->
           <p>{para}</p>
         ))}
       </div>
 
-      <a href="#booking" class="btn btn--outline about__cta">
-        Book a Session
-      </a>
+      <div data-reveal class="delay-300">
+        <a href="#booking" class="btn btn--outline about__cta">
+          Book a Session
+        </a>
+      </div>
     </div>
 
   </div>
 </section>
 
 <style>
+  .about {
+    background-color: var(--color-bg);
+  }
+
   .about__inner {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    align-items: flex-start;
+    gap: 4rem;
+    align-items: center;
   }
 
-  /* Portrait */
-  .about__portrait {
+  /* Imagery */
+  .about__imagery {
     width: 100%;
-    max-width: 22rem;
-    margin-inline: auto;
-    flex-shrink: 0;
+    max-width: 35rem;
   }
 
-  .about__portrait-frame {
+  .about__img-wrapper {
     position: relative;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    aspect-ratio: 6 / 7;
+    aspect-ratio: 4 / 5;
     background-color: var(--color-surface);
-  }
-
-  .about__portrait-frame::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: var(--radius-lg);
-    box-shadow: inset 0 0 0 1px var(--color-border);
-    pointer-events: none;
+    box-shadow: var(--shadow-lg);
   }
 
   .about__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    transition: transform 1.5s ease;
   }
 
-  .about__img-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    padding: 2rem;
-    font-size: var(--text-sm);
-    color: var(--color-muted);
-    text-align: center;
-    background-color: var(--color-surface);
+  .about__imagery:hover .about__img {
+    transform: scale(1.05);
+  }
+
+  .about__img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(45, 38, 34, 0.1));
+    pointer-events: none;
   }
 
   /* Text */
   .about__text {
-    max-width: 38rem;
+    max-width: 40rem;
+    text-align: center;
   }
 
   .about__body {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-    margin-bottom: 2rem;
-    color: var(--color-text);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-muted);
   }
 
   .about__body p {
+    font-size: var(--text-base);
     line-height: var(--leading-relaxed);
   }
 
-  .about__cta {
-    margin-top: 0.5rem;
-  }
-
-  /* Desktop: side by side */
-  @media (min-width: 900px) {
+  /* Desktop layout */
+  @media (min-width: 1024px) {
     .about__inner {
-      flex-direction: row;
-      gap: clamp(3rem, 6vw, 6rem);
+      flex-direction: row-reverse;
+      gap: 10%;
       align-items: center;
     }
 
-    .about__portrait {
-      margin-inline: 0;
-      max-width: 28rem;
-      width: 42%;
+    .about__imagery {
+      width: 45%;
+      max-width: none;
     }
 
     .about__text {
-      flex: 1;
+      width: 45%;
+      text-align: left;
+    }
+
+    .about__body {
+      margin-bottom: 4rem;
     }
   }
 </style>
