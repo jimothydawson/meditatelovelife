@@ -1,0 +1,106 @@
+---
+/**
+ * Redesigned Benefits Section
+ */
+---
+
+<section class="benefits section-pad">
+    <div class="container">
+        <div class="benefits-header reveal">
+            <h2>Vedic Meditation gives you life back.</h2>
+            <div class="accent-line"></div>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-item reveal">
+                <p>Learn to relax and settle your nervous system.</p>
+                <p class="outcome">Feel less pressure, more calm.</p>
+            </div>
+            <div class="benefit-item reveal">
+                <p>
+                    Release accumulated stress chemistry and restore healthy
+                    function of your body and mind.
+                </p>
+                <p class="outcome">Return to balance.</p>
+            </div>
+            <div class="benefit-item reveal">
+                <p>Experience deep rest that restores energy and clarity.</p>
+                <p class="outcome">
+                    Reduce fatigue and think clearly and creatively.
+                </p>
+            </div>
+            <div class="benefit-item reveal">
+                <p>Create time in your day that is entirely yours.</p>
+                <p class="outcome">Space and time for yourself.</p>
+            </div>
+            <div class="benefit-item reveal">
+                <p>Balance your emotions and maintain a sense of ease.</p>
+                <p class="outcome">
+                    A positive influence on yourself and others.
+                </p>
+            </div>
+            <div class="benefit-item reveal">
+                <p>
+                    Build a stable inner foundation to respond to life's
+                    demands.
+                </p>
+                <p class="outcome">Interact with composure.</p>
+            </div>
+            <div class="benefit-item reveal">
+                <p>Live life aligned with nature's intelligence.</p>
+                <p class="outcome">Feel whole and like yourself again.</p>
+            </div>
+            <div class="benefit-item reveal">
+                <p>Establish yourself in Being.</p>
+                <p class="outcome">
+                    Evolve, expand your happiness and actually enjoy life.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .benefits {
+        background: var(--color-indigo);
+        color: var(--color-warm-white);
+    }
+    .benefits-header {
+        text-align: center;
+        margin-bottom: 80px;
+    }
+    .benefits-header h2 {
+        font-size: clamp(28px, 3.5vw, 40px);
+        color: var(--color-warm-white);
+        font-style: italic;
+    }
+    .benefits-header .accent-line {
+        background: var(--color-eucalyptus);
+    }
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 48px 80px;
+    }
+    .benefit-item {
+        padding-left: 24px;
+        border-left: 1px solid var(--color-sea-green);
+    }
+    .benefit-item p {
+        font-size: 16px;
+        color: rgba(244, 242, 238, 0.8);
+        line-height: 1.8;
+    }
+    .benefit-item .outcome {
+        color: var(--color-golden-seed);
+        font-style: italic;
+        font-family: var(--font-serif);
+        font-size: 15px;
+        margin-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+        .benefits-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

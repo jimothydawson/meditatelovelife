@@ -1,0 +1,101 @@
+---
+/**
+ * Redesigned Shift Section
+ */
+---
+
+<section class="shift section-pad">
+    <div class="container">
+        <h2 class="reveal">With Vedic Meditation, something shifts.</h2>
+        <div class="shift-grid">
+            <div class="shift-pair reveal">
+                <p class="from">Deep rest happens</p>
+                <p class="to">Stress leaves the body</p>
+            </div>
+            <div class="shift-pair reveal">
+                <p class="from">Natural rhythm returns</p>
+                <p class="to">Life flows again</p>
+            </div>
+            <div class="shift-pair reveal">
+                <p class="from">Thoughts lose urgency</p>
+                <p class="to">Thinking gains clarity</p>
+            </div>
+            <div class="shift-pair reveal">
+                <p class="from">Less becomes more</p>
+                <p class="to">Being becomes easy</p>
+            </div>
+        </div>
+        <div class="shift-bottom reveal">
+            <h3>Become the version of you that feels more like you.</h3>
+            <p>
+                The one who smiles more easily, rests more deeply and moves
+                through life with greater ease.
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .shift {
+        background: linear-gradient(
+            180deg,
+            var(--color-indigo) 0%,
+            #253840 100%
+        );
+        color: var(--color-warm-white);
+        text-align: center;
+    }
+    .shift h2 {
+        font-size: clamp(26px, 3vw, 36px);
+        font-style: italic;
+        margin-bottom: 64px;
+        color: var(--color-warm-white);
+    }
+    .shift-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        max-width: 900px;
+        margin: 0 auto 80px;
+    }
+    .shift-pair {
+        position: relative;
+    }
+    .shift-pair .from {
+        font-size: 15px;
+        color: rgba(244, 242, 238, 0.45);
+        margin-bottom: 12px;
+    }
+    .shift-pair .to {
+        font-size: 16px;
+        color: var(--color-golden-seed);
+        font-family: var(--font-serif);
+        font-style: italic;
+    }
+    .shift-bottom {
+        max-width: 580px;
+        margin: 0 auto;
+    }
+    .shift-bottom h3 {
+        font-size: clamp(24px, 3vw, 32px);
+        font-style: italic;
+        margin-bottom: 20px;
+    }
+    .shift-bottom p {
+        color: rgba(244, 242, 238, 0.7);
+        font-size: 17px;
+        line-height: 1.9;
+    }
+
+    @media (max-width: 900px) {
+        .shift-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width: 600px) {
+        .shift-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+    }
+</style>

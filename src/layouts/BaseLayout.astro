@@ -1,6 +1,6 @@
 ---
-import '../styles/global.css';
-import site from '../content/site.json';
+import "../styles/global.css";
+import site from "../content/site.json";
 
 interface Props {
   title?: string;
@@ -11,17 +11,17 @@ interface Props {
 const {
   title = site.name,
   description = site.metaDescription,
-  ogImage = '/images/og-default.jpg',
+  ogImage = "/images/og-default.jpg",
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, site.url);
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
@@ -37,11 +37,11 @@ const canonicalUrl = new URL(Astro.url.pathname, site.url);
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Nunito Sans via Google Fonts — lightweight, load only weights used -->
+    <!-- Fonts: Libre Baskerville -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -49,25 +49,32 @@ const canonicalUrl = new URL(Astro.url.pathname, site.url);
     <slot />
 
     <script>
-      // Scroll-reveal Intersection Observer
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15,
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          }
+      // Nav scroll effect
+      const nav = document.getElementById("nav");
+      if (nav) {
+        window.addEventListener("scroll", () => {
+          nav.classList.toggle("scrolled", window.scrollY > 60);
         });
-      }, observerOptions);
+      }
 
-      // Initialize reveals
-      document.querySelectorAll('[data-reveal]').forEach((el) => {
-        observer.observe(el);
-      });
+      // Scroll reveal
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.classList.add("visible");
+              }, i * 80);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+      );
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>

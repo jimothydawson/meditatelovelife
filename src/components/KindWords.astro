@@ -1,0 +1,102 @@
+---
+/**
+ * Redesigned Kind Words Section (Testimonials)
+ */
+---
+
+<section class="testimonials section-pad">
+    <div class="container">
+        <div class="testimonials-header reveal">
+            <h2>Kind Words</h2>
+            <div class="accent-line"></div>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card reveal">
+                <p>
+                    I used to carry so much tension — emotionally and
+                    physically. I felt full and cluttered. Through meditation
+                    with Kari, I've cleared so much. I feel spacious, grounded,
+                    and excited about the future instead of overwhelmed. I
+                    didn't realise I could feel this calm.
+                </p>
+            </div>
+            <div class="testimonial-card reveal">
+                <p>
+                    I was rushed and scattered, constantly in my head. Now I
+                    look forward to meditation every day — it's becoming a habit
+                    I love. I feel calmer, clearer, and inspired to keep going.
+                </p>
+            </div>
+            <div class="testimonial-card reveal">
+                <p>
+                    I was exhausted from holding everything together — work,
+                    family, life. Learning Vedic Meditation with Kari gave me
+                    space to breathe again. I'm present, steady, and I finally
+                    feel like myself.
+                </p>
+            </div>
+            <div class="testimonial-card reveal">
+                <p>
+                    I want to let you know how grateful I am for our weekly
+                    catch-ups. I get so much out of the mentoring and the
+                    meditation. And the bonus — I am having the best sleep ever.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .testimonials {
+        background: var(--color-indigo);
+        color: var(--color-warm-white);
+    }
+    .testimonials-header {
+        text-align: center;
+        margin-bottom: 80px;
+    }
+    .testimonials-header h2 {
+        font-size: clamp(28px, 3.5vw, 40px);
+        font-style: italic;
+        color: var(--color-warm-white);
+    }
+    .testimonials-header .accent-line {
+        background: var(--color-eucalyptus);
+    }
+    .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 48px;
+    }
+    .testimonial-card {
+        padding: 40px;
+        border: 1px solid rgba(244, 242, 238, 0.08);
+        background: rgba(244, 242, 238, 0.03);
+        position: relative;
+    }
+    .testimonial-card::before {
+        content: "“";
+        position: absolute;
+        top: 20px;
+        left: 28px;
+        font-family: var(--font-serif);
+        font-size: 60px;
+        color: var(--color-sea-green);
+        opacity: 0.4;
+        line-height: 1;
+    }
+    .testimonial-card p {
+        font-size: 16px;
+        line-height: 1.85;
+        color: rgba(244, 242, 238, 0.8);
+        font-style: italic;
+        position: relative;
+        z-index: 1;
+    }
+
+    @media (max-width: 900px) {
+        .testimonial-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

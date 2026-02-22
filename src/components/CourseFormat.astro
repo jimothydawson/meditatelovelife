@@ -1,0 +1,136 @@
+---
+/**
+ * Redesigned Course Section (formerly Course Format)
+ */
+---
+
+<section class="course section-pad">
+    <div class="container">
+        <div class="text-center reveal" style="margin-bottom: 80px;">
+            <h2
+                style="font-size: clamp(28px, 3.5vw, 40px); font-style: italic;"
+            >
+                The Course
+            </h2>
+            <div class="accent-line"></div>
+        </div>
+        <div class="course-layout">
+            <div class="course-col reveal">
+                <div class="course-section">
+                    <h4>Format</h4>
+                    <div class="course-item">
+                        All courses are taught in a traditional in-person
+                        learning experience
+                    </div>
+                    <div class="course-item">
+                        Courses are offered in a private or small group setting
+                    </div>
+                    <div class="course-item">
+                        Four sessions held over four consecutive days
+                    </div>
+                    <div class="course-item">
+                        Each session is 90–120 minutes in length
+                    </div>
+                    <div class="course-item">
+                        Flexible scheduling is available
+                    </div>
+                </div>
+                <div class="course-section">
+                    <h4>Includes</h4>
+                    <div class="course-item">
+                        4 × 90 minute course instruction sessions
+                    </div>
+                    <div class="course-item">
+                        1 × 60 minute private follow-up, approximately two weeks
+                        after the course
+                    </div>
+                    <div class="course-item">Unlimited group meditations</div>
+                    <div class="course-item">
+                        Sliding scale fee for affordability
+                    </div>
+                </div>
+            </div>
+            <div class="course-col reveal">
+                <div class="course-section">
+                    <h4>Ongoing Support</h4>
+                    <div class="course-item">
+                        No groups to join. No apps. No recordings. No pressure.
+                        No ongoing costs required to keep meditating.
+                    </div>
+                    <div class="course-item">
+                        Ask Kari Anything — 15 minute schedulable check-ins to
+                        support learning and practice
+                    </div>
+                    <div class="course-item">
+                        Weekly group meditations (in-person and on Zoom)
+                    </div>
+                    <div class="course-item">
+                        Lifetime access to continued meditation support
+                    </div>
+                    <div class="course-item">
+                        Access to global Vedic Meditation community offerings
+                    </div>
+                    <div class="course-item">
+                        Bonus offers for seasonal events and personal mentoring
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .course {
+        background: var(--color-warm-white);
+    }
+    .course-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+    }
+    .course-col h3 {
+        font-size: 22px;
+        font-style: italic;
+        margin-bottom: 32px;
+        color: var(--color-indigo);
+    }
+    .course-item {
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(218, 221, 216, 0.6);
+        font-size: 16px;
+        color: var(--color-slate);
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .course-item::before {
+        content: "";
+        flex-shrink: 0;
+        width: 6px;
+        height: 6px;
+        background: var(--color-sea-green);
+        border-radius: 50%;
+        margin-top: 10px;
+    }
+    .course-section {
+        margin-bottom: 56px;
+    }
+    .course-section:last-child {
+        margin-bottom: 0;
+    }
+    .course-section h4 {
+        font-size: 13px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--color-eucalyptus);
+        margin-bottom: 24px;
+        font-family: var(--font-sans);
+        font-weight: 600;
+    }
+
+    @media (max-width: 900px) {
+        .course-layout {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

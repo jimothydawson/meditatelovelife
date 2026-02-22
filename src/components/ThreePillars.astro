@@ -1,0 +1,139 @@
+---
+/**
+ * Redesigned Stages Section (formerly Three Pillars)
+ */
+---
+
+<section class="stages section-pad">
+    <div class="container">
+        <p class="stages-eyebrow reveal">The Process</p>
+        <h2 class="reveal">
+            With regularity and repetition, the body naturally begins to:
+        </h2>
+        <div class="stages-grid">
+            <div class="stage-card reveal">
+                <p class="stage-number">One</p>
+                <h3>Release</h3>
+                <p>
+                    This is where the overwhelm begins to dissolve and the edge
+                    begins to soften. Stress leaves the body naturally, the mind
+                    settles and you experience deep rest. Often for the first
+                    time in years.
+                </p>
+                <p class="stage-feel">
+                    Feel spacious again — mentally, emotionally, physically.
+                </p>
+            </div>
+            <div class="stage-card reveal">
+                <p class="stage-number">Two</p>
+                <h3>Restore</h3>
+                <p>
+                    With the load lifted, a natural steadiness begins to show
+                    up. Letting go and slowing down become routine. The noise
+                    quiets, your energy returns and you begin responding to life
+                    differently. More naturally. More creatively. More
+                    consciously.
+                </p>
+                <p class="stage-feel">
+                    Feel clearer, more grounded, more present in your own life.
+                </p>
+            </div>
+            <div class="stage-card reveal">
+                <p class="stage-number">Three</p>
+                <h3>Remember</h3>
+                <p>
+                    Be reminded of what you are — body, mind and soul — realise
+                    your true nature. Your true essence. Experience more joy,
+                    more ease, more time for what matters. Establish a sense of
+                    being and happiness within yourself.
+                </p>
+                <p class="stage-feel">
+                    Feel supported, lighter, and genuinely excited about the
+                    future.
+                </p>
+            </div>
+        </div>
+        <p class="stage-footnote reveal">
+            You don't have to try. The technique does the work for you.
+        </p>
+    </div>
+</section>
+
+<style>
+    .stages {
+        background: var(--color-warm-white);
+    }
+    .stages-eyebrow {
+        font-size: 12px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--color-eucalyptus);
+        text-align: center;
+        margin-bottom: 16px;
+    }
+    .stages h2 {
+        text-align: center;
+        font-size: clamp(26px, 3vw, 36px);
+        font-style: italic;
+        margin-bottom: 80px;
+        color: var(--color-indigo);
+    }
+    .stages-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 60px;
+    }
+    .stage-card {
+        padding: 48px 32px;
+        background: white;
+        border-top: 2px solid var(--color-sea-green);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .stage-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 60px rgba(31, 47, 58, 0.08);
+    }
+    .stage-number {
+        font-size: 12px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--color-eucalyptus);
+        margin-bottom: 16px;
+    }
+    .stage-card h3 {
+        font-size: 26px;
+        font-style: italic;
+        margin-bottom: 24px;
+        color: var(--color-indigo);
+    }
+    .stage-card p {
+        font-size: 16px;
+        color: var(--color-slate);
+        line-height: 1.85;
+        margin-bottom: 16px;
+    }
+    .stage-card .stage-feel {
+        font-style: italic;
+        font-family: var(--font-serif);
+        color: var(--color-sea-green);
+        font-size: 15px;
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid var(--color-mist);
+    }
+    .stage-footnote {
+        text-align: center;
+        margin-top: 64px;
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-size: 20px;
+        color: var(--color-slate);
+    }
+
+    @media (max-width: 900px) {
+        .stages-grid {
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+    }
+</style>

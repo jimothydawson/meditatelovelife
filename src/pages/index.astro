@@ -1,37 +1,376 @@
 ---
 /**
- * Meditate Love Life — home page
- *
- * Single-page site. All sections are composed here from their respective components.
- * To edit text content, update the corresponding file in src/content/ — not this file.
- *
- * Content node map:
- *   Site-wide       → src/content/site.json
- *   Hero            → src/content/hero.json
- *   About Kari      → src/content/about.json
- *   Vedic Meditation → src/content/vedic.json
- *   Sessions        → src/content/services.json
- *   Booking         → src/content/booking.json
- *   Contact/Footer  → src/content/contact.json + src/content/site.json
+ * Meditate Love Life — Home Page
+ * 1:1 port from the approved HTML template into Astro.
+ * All content is inline. Styles are in global.css.
  */
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Nav from '../components/Nav.astro';
-import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
-import VedicMeditation from '../components/VedicMeditation.astro';
-import Services from '../components/Services.astro';
-import Booking from '../components/Booking.astro';
-import Contact from '../components/Contact.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <Nav />
-  <main>
-    <Hero />
-    <About />
-    <VedicMeditation />
-    <Services />
-    <Booking />
-    <Contact />
-  </main>
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">Meditate Love Life</a>
+    <a href="#book" class="nav-cta">Book a Session</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-orb one"></div>
+    <div class="hero-bg-orb two"></div>
+    <div class="hero-bg-orb three"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Vedic Meditation · Sydney</p>
+      <h1>Less Pressure.<br /><em>More Calm.</em></h1>
+      <p class="hero-sub">
+        A simple, natural way to dissolve stress at its source and restore your
+        true nature.
+      </p>
+      <a href="#book" class="hero-cta">Learn Vedic Meditation</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro section-pad">
+    <div class="container-narrow text-center reveal">
+      <h2>
+        The world has a tendency to pull us outward, constantly asking for more.
+      </h2>
+      <div class="accent-line"></div>
+      <p>
+        More doing, more giving, more distractions, more choices, more chasing
+        and more holding it all together. As a result the mind doesn't stop. The
+        body never fully rests.
+      </p>
+      <p>
+        When life keeps asking more of you, you don't need to do more and try
+        harder. What you are seeking is the opposite — simplicity and ease. Time
+        for yourself and room to soften. Space to simply be.
+      </p>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits section-pad">
+    <div class="container">
+      <div class="benefits-header reveal">
+        <h2>Vedic Meditation gives you life back.</h2>
+        <div class="accent-line"></div>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-item reveal">
+          <p>Learn to relax and settle your nervous system.</p>
+          <p class="outcome">Feel less pressure, more calm.</p>
+        </div>
+        <div class="benefit-item reveal">
+          <p>
+            Release accumulated stress chemistry and restore healthy function of
+            your body and mind.
+          </p>
+          <p class="outcome">Return to balance.</p>
+        </div>
+        <div class="benefit-item reveal">
+          <p>Experience deep rest that restores energy and clarity.</p>
+          <p class="outcome">
+            Reduce fatigue and think clearly and creatively.
+          </p>
+        </div>
+        <div class="benefit-item reveal">
+          <p>Create time in your day that is entirely yours.</p>
+          <p class="outcome">Space and time for yourself.</p>
+        </div>
+        <div class="benefit-item reveal">
+          <p>Balance your emotions and maintain a sense of ease.</p>
+          <p class="outcome">A positive influence on yourself and others.</p>
+        </div>
+        <div class="benefit-item reveal">
+          <p>Build a stable inner foundation to respond to life's demands.</p>
+          <p class="outcome">Interact with composure.</p>
+        </div>
+        <div class="benefit-item reveal">
+          <p>Live life aligned with nature's intelligence.</p>
+          <p class="outcome">Feel whole and like yourself again.</p>
+        </div>
+        <div class="benefit-item reveal">
+          <p>Establish yourself in Being.</p>
+          <p class="outcome">
+            Evolve, expand your happiness and actually enjoy life.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHIFT -->
+  <section class="shift section-pad">
+    <div class="container">
+      <h2 class="reveal">With Vedic Meditation, something shifts.</h2>
+      <div class="shift-grid">
+        <div class="shift-pair reveal">
+          <p class="from">Deep rest happens</p>
+          <p class="to">Stress leaves the body</p>
+        </div>
+        <div class="shift-pair reveal">
+          <p class="from">Natural rhythm returns</p>
+          <p class="to">Life flows again</p>
+        </div>
+        <div class="shift-pair reveal">
+          <p class="from">Thoughts lose urgency</p>
+          <p class="to">Thinking gains clarity</p>
+        </div>
+        <div class="shift-pair reveal">
+          <p class="from">Less becomes more</p>
+          <p class="to">Being becomes easy</p>
+        </div>
+      </div>
+      <div class="shift-bottom reveal">
+        <h3>Become the version of you that feels more like you.</h3>
+        <p>
+          The one who smiles more easily, rests more deeply and moves through
+          life with greater ease.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGES: Release, Restore, Remember -->
+  <section class="stages section-pad">
+    <div class="container">
+      <p class="stages-eyebrow reveal">The Process</p>
+      <h2 class="reveal">
+        With regularity and repetition, the body naturally begins to:
+      </h2>
+      <div class="stages-grid">
+        <div class="stage-card reveal">
+          <p class="stage-number">One</p>
+          <h3>Release</h3>
+          <p>
+            This is where the overwhelm begins to dissolve and the edge begins
+            to soften. Stress leaves the body naturally, the mind settles and
+            you experience deep rest. Often for the first time in years.
+          </p>
+          <p class="stage-feel">
+            Feel spacious again — mentally, emotionally, physically.
+          </p>
+        </div>
+        <div class="stage-card reveal">
+          <p class="stage-number">Two</p>
+          <h3>Restore</h3>
+          <p>
+            With the load lifted, a natural steadiness begins to show up.
+            Letting go and slowing down become routine. The noise quiets, your
+            energy returns and you begin responding to life differently. More
+            naturally. More creatively. More consciously.
+          </p>
+          <p class="stage-feel">
+            Feel clearer, more grounded, more present in your own life.
+          </p>
+        </div>
+        <div class="stage-card reveal">
+          <p class="stage-number">Three</p>
+          <h3>Remember</h3>
+          <p>
+            Be reminded of what you are — body, mind and soul — realise your
+            true nature. Your true essence. Experience more joy, more ease, more
+            time for what matters. Establish a sense of being and happiness
+            within yourself.
+          </p>
+          <p class="stage-feel">
+            Feel supported, lighter, and genuinely excited about the future.
+          </p>
+        </div>
+      </div>
+      <p class="stage-footnote reveal">
+        You don't have to try. The technique does the work for you.
+      </p>
+    </div>
+  </section>
+
+  <!-- ABOUT / MEET KARI -->
+  <section class="about section-pad">
+    <div class="about-inner">
+      <p class="about-eyebrow reveal">Your Teacher</p>
+      <h2 class="reveal">Meet Kari</h2>
+      <p class="reveal">
+        I understand what it feels like when life is on top of you. When the
+        internal pressure is constant. When the external demands never stop.
+        When your way of doing things is no longer working.
+      </p>
+      <p class="reveal">
+        There was a time when my life looked good on the outside — active, full,
+        productive… busy. I thought I was doing all the right things. I was
+        ticking a lot of boxes. But inside, I was running on empty. I felt
+        shattered. Life was getting the better of me.
+      </p>
+      <p class="reveal">
+        You know the feeling… holding it all together, while quietly falling
+        apart.
+      </p>
+      <p class="reveal">
+        My body was tired. My mind never stopped. My nervous system never truly
+        rested. My relationships, my children, my work, my health, my sleep were
+        all suffering. Something was missing and I felt disconnected. I had had
+        enough.
+      </p>
+      <p class="reveal">
+        That's when I found Vedic Meditation. Within days of learning, things
+        shifted. Over time, my practice has changed how I live, mother, work,
+        view the world, and how I love and relate to myself.
+      </p>
+      <div class="about-highlight reveal">
+        <p>
+          My training as a Vedic Meditation teacher and my lived experience
+          means I bring professional knowledge and personal insight to people
+          who are exactly where I once was. Ready for change. Not to become
+          someone new — but to come back to your Self — and feel on top of life
+          again.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials section-pad">
+    <div class="container">
+      <div class="testimonials-header reveal">
+        <h2>Kind Words</h2>
+        <div class="accent-line"></div>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card reveal">
+          <p>
+            I used to carry so much tension — emotionally and physically. I felt
+            full and cluttered. Through meditation with Kari, I've cleared so
+            much. I feel spacious, grounded, and excited about the future
+            instead of overwhelmed. I didn't realise I could feel this calm.
+          </p>
+        </div>
+        <div class="testimonial-card reveal">
+          <p>
+            I was rushed and scattered, constantly in my head. Now I look
+            forward to meditation every day — it's becoming a habit I love. I
+            feel calmer, clearer, and inspired to keep going.
+          </p>
+        </div>
+        <div class="testimonial-card reveal">
+          <p>
+            I was exhausted from holding everything together — work, family,
+            life. Learning Vedic Meditation with Kari gave me space to breathe
+            again. I'm present, steady, and I finally feel like myself.
+          </p>
+        </div>
+        <div class="testimonial-card reveal">
+          <p>
+            I want to let you know how grateful I am for our weekly catch-ups. I
+            get so much out of the mentoring and the meditation. And the bonus —
+            I am having the best sleep ever.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSE FORMAT -->
+  <section class="course section-pad">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom: 80px;">
+        <h2 style="font-size: clamp(28px, 3.5vw, 40px); font-style: italic;">
+          The Course
+        </h2>
+        <div class="accent-line"></div>
+      </div>
+      <div class="course-layout">
+        <div class="course-col reveal">
+          <div class="course-section">
+            <h4>Format</h4>
+            <div class="course-item">
+              All courses are taught in a traditional in-person learning
+              experience
+            </div>
+            <div class="course-item">
+              Courses are offered in a private or small group setting
+            </div>
+            <div class="course-item">
+              Four sessions held over four consecutive days
+            </div>
+            <div class="course-item">
+              Each session is 90–120 minutes in length
+            </div>
+            <div class="course-item">Flexible scheduling is available</div>
+          </div>
+          <div class="course-section">
+            <h4>Includes</h4>
+            <div class="course-item">
+              4 × 90 minute course instruction sessions
+            </div>
+            <div class="course-item">
+              1 × 60 minute private follow-up, approximately two weeks after the
+              course
+            </div>
+            <div class="course-item">Unlimited group meditations</div>
+            <div class="course-item">Sliding scale fee for affordability</div>
+          </div>
+        </div>
+        <div class="course-col reveal">
+          <div class="course-section">
+            <h4>Ongoing Support</h4>
+            <div class="course-item">
+              No groups to join. No apps. No recordings. No pressure. No ongoing
+              costs required to keep meditating.
+            </div>
+            <div class="course-item">
+              Ask Kari Anything — 15 minute schedulable check-ins to support
+              learning and practice
+            </div>
+            <div class="course-item">
+              Weekly group meditations (in-person and on Zoom)
+            </div>
+            <div class="course-item">
+              Lifetime access to continued meditation support
+            </div>
+            <div class="course-item">
+              Access to global Vedic Meditation community offerings
+            </div>
+            <div class="course-item">
+              Bonus offers for seasonal events and personal mentoring
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="book">
+    <div class="final-cta-orb"></div>
+    <div class="container-narrow reveal">
+      <h2>Let's continue the conversation.</h2>
+      <p>
+        On this call, we slow down. You'll hear more about the details of the
+        course, its history, the benefits, what the science says and how Vedic
+        Meditation will support you and your specific circumstances.
+      </p>
+      <p>
+        You ask questions, I give answers. You'll know very quickly if this is
+        the right next step for you.
+      </p>
+      <p class="small-note">Obligation, expectation and pressure free.</p>
+      <a href="#">Book Your Complimentary Introductory Session</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-brand">Meditate Love Life</p>
+    <p class="footer-tagline">
+      Meditation that is personal, individual, effective and serves the greater
+      common good.
+    </p>
+    <div class="footer-line"></div>
+    <p class="footer-copy">© 2025 Meditate Love Life. All rights reserved.</p>
+  </footer>
 </BaseLayout>
