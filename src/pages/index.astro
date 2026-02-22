@@ -16,6 +16,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-bg-image">
+      <img
+        src="/images/zoltan-tasi-vHnVtLK8rCc-unsplash.jpg"
+        alt="Vedic Meditation"
+      />
+      <div class="hero-overlay"></div>
+    </div>
     <div class="hero-bg-orb one"></div>
     <div class="hero-bg-orb two"></div>
     <div class="hero-bg-orb three"></div>
@@ -192,43 +199,50 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <!-- ABOUT / MEET KARI -->
   <section class="about section-pad">
-    <div class="about-inner">
-      <p class="about-eyebrow reveal">Your Teacher</p>
-      <h2 class="reveal">Meet Kari</h2>
-      <p class="reveal">
-        I understand what it feels like when life is on top of you. When the
-        internal pressure is constant. When the external demands never stop.
-        When your way of doing things is no longer working.
-      </p>
-      <p class="reveal">
-        There was a time when my life looked good on the outside — active, full,
-        productive… busy. I thought I was doing all the right things. I was
-        ticking a lot of boxes. But inside, I was running on empty. I felt
-        shattered. Life was getting the better of me.
-      </p>
-      <p class="reveal">
-        You know the feeling… holding it all together, while quietly falling
-        apart.
-      </p>
-      <p class="reveal">
-        My body was tired. My mind never stopped. My nervous system never truly
-        rested. My relationships, my children, my work, my health, my sleep were
-        all suffering. Something was missing and I felt disconnected. I had had
-        enough.
-      </p>
-      <p class="reveal">
-        That's when I found Vedic Meditation. Within days of learning, things
-        shifted. Over time, my practice has changed how I live, mother, work,
-        view the world, and how I love and relate to myself.
-      </p>
-      <div class="about-highlight reveal">
-        <p>
-          My training as a Vedic Meditation teacher and my lived experience
-          means I bring professional knowledge and personal insight to people
-          who are exactly where I once was. Ready for change. Not to become
-          someone new — but to come back to your Self — and feel on top of life
-          again.
-        </p>
+    <div class="container">
+      <div class="about-layout">
+        <div class="about-text">
+          <p class="about-eyebrow reveal">Your Teacher</p>
+          <h2 class="reveal">Meet Kari</h2>
+          <p class="reveal">
+            I understand what it feels like when life is on top of you. When the
+            internal pressure is constant. When the external demands never stop.
+            When your way of doing things is no longer working.
+          </p>
+          <p class="reveal">
+            There was a time when my life looked good on the outside — active,
+            full, productive… busy. I thought I was doing all the right things.
+            I was ticking a lot of boxes. But inside, I was running on empty. I
+            felt shattered. Life was getting the better of me.
+          </p>
+          <p class="reveal">
+            You know the feeling… holding it all together, while quietly falling
+            apart.
+          </p>
+          <p class="reveal">
+            My body was tired. My mind never stopped. My nervous system never
+            truly rested. My relationships, my children, my work, my health, my
+            sleep were all suffering. Something was missing and I felt
+            disconnected. I had had enough.
+          </p>
+          <p class="reveal">
+            That's when I found Vedic Meditation. Within days of learning,
+            things shifted. Over time, my practice has changed how I live,
+            mother, work, view the world, and how I love and relate to myself.
+          </p>
+          <div class="about-highlight reveal">
+            <p>
+              My training as a Vedic Meditation teacher and my lived experience
+              means I bring professional knowledge and personal insight to
+              people who are exactly where I once was. Ready for change. Not to
+              become someone new — but to come back to your Self — and feel on
+              top of life again.
+            </p>
+          </div>
+        </div>
+        <div class="about-image reveal">
+          <img src="/images/Kari.JPG" alt="Kari — Vedic Meditation Teacher" />
+        </div>
       </div>
     </div>
   </section>
@@ -346,7 +360,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <!-- FINAL CTA -->
   <section class="final-cta" id="book">
-    <div class="final-cta-orb"></div>
     <div class="container-narrow reveal">
       <h2>Let's continue the conversation.</h2>
       <p>
